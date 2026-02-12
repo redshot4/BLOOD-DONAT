@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Donation Centers - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .centers-search {
+            max-width: 600px;
+            margin: 0 auto 60px;
+            display: flex;
+            gap: 16px;
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+        
+        .search-input:focus {
+            box-shadow: none; /* Override default input focus */
+        }
+
+        .center-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left; /* Override default centered text */
+        }
+        
+        .center-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(230, 57, 70, 0.1);
+        }
+
+        .center-card h3 {
+            color: var(--secondary);
+            margin-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .center-info-row {
+            display: flex;
+            gap: 12px;
+            color: var(--text-light);
+            font-size: 14px;
+            align-items: flex-start;
+        }
+
+        .center-icon {
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .status-open {
+            font-size: 12px;
+            color: var(--success);
+            background: #e6fcf5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-schedule {
+            margin-top: auto; /* Pushes button to bottom */
+            width: 100%;
+            background: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px;
+        }
+        
+        .btn-schedule:hover {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link active">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link">Emergency</a>
+            <a href="faq.html" class="taskbar-link">FAQ</a>
+            <a href="contact.html" class="taskbar-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Find a Donation Center</h1>
+            <p>Locate the nearest center and book your appointment today.</p>
+        </div>
+    </section>
+
+    <section class="centers-section">
+        <div class="container">
+            <div class="centers-search">
+                <input type="text" id="searchInput" placeholder="Enter city, zip code, or center name..." class="search-input">
+                <button class="btn btn-primary" style="margin: 0;">Search</button>
+            </div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                
+                <div class="center-card">
+                    <h3>Downtown Blood Bank <span class="status-open">Open Now</span></h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>123 Main Street, New York, NY 10001</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(212) 555-0100</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Mon-Fri 8AM-8PM • Sat-Sun 9AM-5PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">🅿️</span>
+                        <span>Free validated parking available</span>
+                    </div>
+                    <button class="btn btn-schedule">Schedule Appointment</button>
+                </div>
+
+                <div class="center-card">
+                    <h3>Uptown Donation Center <span class="status-open">Open Now</span></h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>456 Park Avenue, New York, NY 10022</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(212) 555-0101</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Daily 7AM-9PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">🅿️</span>
+                        <span>Street parking only</span>
+                    </div>
+                    <button class="btn btn-schedule">Schedule Appointment</button>
+                </div>
+
+                <div class="center-card">
+                    <h3>Medical Center Drive <span class="status-open" style="background:#fff3bf; color:#f08c00;">Closing Soon</span></h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>789 Medical Plaza, New York, NY 10016</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(212) 555-0102</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Mon-Fri 9AM-5PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">🅿️</span>
+                        <span>Hospital garage (Level B2)</span>
+                    </div>
+                    <button class="btn btn-schedule">Schedule Appointment</button>
+                </div>
+
+                <div class="center-card">
+                    <h3>Community Blood Bank</h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>321 Community Way, Brooklyn, NY 11201</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(718) 555-0103</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Tue-Sun 10AM-6PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">🅿️</span>
+                        <span>Free parking lot</span>
+                    </div>
+                    <button class="btn btn-schedule">Schedule Appointment</button>
+                </div>
+
+                <div class="center-card">
+                    <h3>Mobile Donation Unit #4</h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>Currently: Central Park West & 72nd</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(212) 555-0104</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Today until 4:00 PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">ℹ️</span>
+                        <span>Walk-ins welcome</span>
+                    </div>
+                    <button class="btn btn-schedule">View Schedule</button>
+                </div>
+
+                <div class="center-card">
+                    <h3>Queens Hospital Center</h3>
+                    <div class="center-info-row">
+                        <span class="center-icon">📍</span>
+                        <span>82-68 164th St, Queens, NY 11432</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">📞</span>
+                        <span>(718) 555-0105</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">⏰</span>
+                        <span>Mon-Sat 8AM-7PM</span>
+                    </div>
+                    <div class="center-info-row">
+                        <span class="center-icon">🅿️</span>
+                        <span>Visitor parking available</span>
+                    </div>
+                    <button class="btn btn-schedule">Schedule Appointment</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>

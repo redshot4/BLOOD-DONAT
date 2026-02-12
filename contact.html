@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Two-column layout for Contact Page */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Cards */
+        .info-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(230, 57, 70, 0.1);
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f3f5;
+        }
+
+        .info-card p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Form Styling */
+        .contact-form-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link">Emergency</a>
+            <a href="faq.html" class="taskbar-link">FAQ</a>
+            <a href="contact.html" class="taskbar-link active">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help. Reach out to our support team anytime.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                
+                <div class="contact-sidebar">
+                    <div class="info-card">
+                        <h3>📧 Email Support</h3>
+                        <p><strong>General:</strong> info@bloodlife.com</p>
+                        <p><strong>Support:</strong> support@bloodlife.com</p>
+                        <p><strong>Emergency:</strong> help@bloodlife.com</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📞 Phone Lines</h3>
+                        <p><strong>Main:</strong> 1-800-BLOOD-LIFE</p>
+                        <p><strong>Emergency:</strong> +1-555-BLOOD-911</p>
+                        <p style="color: var(--success); font-weight: 600; margin-top: 8px;">• Lines Open 24/7</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📍 Headquarters</h3>
+                        <p>123 Medical Center Ave</p>
+                        <p>Suite 400</p>
+                        <p>New York, NY 10001</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⏰ Office Hours</h3>
+                        <p><strong>Mon - Fri:</strong> 8:00 AM - 6:00 PM</p>
+                        <p><strong>Sat - Sun:</strong> 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h2 style="color: var(--secondary); margin-bottom: 24px;">Send Us a Message</h2>
+                    <form class="contact-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="How can we help?">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>

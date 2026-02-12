@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Dashboard Grid Layouts */
+        .dashboard-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        /* Data Tables */
+        .table-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        th {
+            text-align: left;
+            padding: 16px;
+            background: #f8f9fa;
+            color: var(--secondary);
+            font-weight: 600;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #e9ecef;
+            color: var(--text-dark);
+        }
+        
+        tr:hover td { background: #f8f9fa; }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-active { background: #e6fcf5; color: #0ca678; }
+        .status-urgent { background: #fff5f5; color: #fa5252; }
+        .status-warning { background: #fff9db; color: #f59f00; }
+
+        /* Alerts */
+        .alert-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid;
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .alert-urgent { border-color: #fa5252; background: #fff5f5; }
+        .alert-warning { border-color: #f59f00; background: #fff9db; }
+        .alert-info { border-color: #228be6; background: #e7f5ff; }
+
+        /* Simple Charts */
+        .chart-bar-container { margin-bottom: 12px; }
+        .chart-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+        .chart-bg { height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden; }
+        .chart-fill { height: 100%; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html" class="active">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link">Emergency</a>
+            <a href="faq.html" class="taskbar-link">FAQ</a>
+            <a href="contact.html" class="taskbar-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>System Overview, User Management, and Reporting</p>
+        </div>
+    </section>
+
+    <div class="container">
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <h3>5,420</h3>
+                <p>Total Donors</p>
+                <small style="color: var(--success); font-weight: 600;">↑ 12% this month</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🩸</div>
+                <h3>1,240</h3>
+                <p>Total Collections</p>
+                <small style="color: var(--success); font-weight: 600;">↑ 8% this month</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📉</div>
+                <h3>850</h3>
+                <p>Units in Stock</p>
+                <small style="color: var(--primary); font-weight: 600;">↓ 3% this month</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏥</div>
+                <h3>45</h3>
+                <p>Partner Hospitals</p>
+                <small style="color: var(--success); font-weight: 600;">↑ 2 New</small>
+            </div>
+        </div>
+
+        <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            
+            <div>
+                <h3 style="margin-bottom: 20px;">System Alerts</h3>
+                <div class="alert-item alert-urgent">
+                    <div style="font-size: 20px;">⚠️</div>
+                    <div>
+                        <h4 style="color: #c92a2a; margin-bottom: 4px;">Critical: Low O- Stock</h4>
+                        <p style="font-size: 14px; margin-bottom: 0;">Only 8 units remaining. Initiate campaign.</p>
+                        <small style="color: #fa5252;">2 hours ago</small>
+                    </div>
+                </div>
+
+                <div class="alert-item alert-warning">
+                    <div style="font-size: 20px;">⚡</div>
+                    <div>
+                        <h4 style="color: #e67700; margin-bottom: 4px;">High Demand: AB+</h4>
+                        <p style="font-size: 14px; margin-bottom: 0;">3 hospitals requesting AB+ blood.</p>
+                        <small style="color: #f59f00;">4 hours ago</small>
+                    </div>
+                </div>
+
+                <div class="alert-item alert-info">
+                    <div style="font-size: 20px;">ℹ️</div>
+                    <div>
+                        <h4 style="color: #1864ab; margin-bottom: 4px;">Maintenance</h4>
+                        <p style="font-size: 14px; margin-bottom: 0;">Scheduled for Saturday, 2:00 AM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3 style="margin-bottom: 20px;">Blood Inventory Levels</h3>
+                
+                <div class="chart-bar-container">
+                    <div class="chart-label"><span>O+ (Positive)</span> <span>180 Units</span></div>
+                    <div class="chart-bg"><div class="chart-fill" style="width: 80%; background: var(--success);"></div></div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label"><span>A+ (Positive)</span> <span>150 Units</span></div>
+                    <div class="chart-bg"><div class="chart-fill" style="width: 65%; background: var(--success);"></div></div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label"><span>B+ (Positive)</span> <span>120 Units</span></div>
+                    <div class="chart-bg"><div class="chart-fill" style="width: 50%; background: var(--accent);"></div></div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label"><span>O- (Negative)</span> <span style="color: var(--primary); font-weight: bold;">45 Units</span></div>
+                    <div class="chart-bg"><div class="chart-fill" style="width: 20%; background: var(--primary);"></div></div>
+                </div>
+
+                <div class="chart-bar-container">
+                    <div class="chart-label"><span>AB+ (Positive)</span> <span style="color: var(--primary); font-weight: bold;">35 Units</span></div>
+                    <div class="chart-bg"><div class="chart-fill" style="width: 15%; background: var(--primary);"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 60px; margin-bottom: 20px; text-align: center;">Quick Actions</h3>
+        <div class="features-grid" style="margin-top: 0;">
+            <div class="feature-card" style="padding: 24px;">
+                <div class="feature-icon" style="font-size: 24px;">👥</div>
+                <h3 style="font-size: 18px;">Donors</h3>
+                <p>Manage profiles</p>
+                <button class="btn btn-secondary" style="margin: 10px 0 0; width: 100%;">View</button>
+            </div>
+            <div class="feature-card" style="padding: 24px;">
+                <div class="feature-icon" style="font-size: 24px;">📋</div>
+                <h3 style="font-size: 18px;">Collectors</h3>
+                <p>Manage Staff</p>
+                <button class="btn btn-secondary" style="margin: 10px 0 0; width: 100%;">View</button>
+            </div>
+            <div class="feature-card" style="padding: 24px;">
+                <div class="feature-icon" style="font-size: 24px;">🏥</div>
+                <h3 style="font-size: 18px;">Hospitals</h3>
+                <p>Manage Partners</p>
+                <button class="btn btn-secondary" style="margin: 10px 0 0; width: 100%;">View</button>
+            </div>
+            <div class="feature-card" style="padding: 24px;">
+                <div class="feature-icon" style="font-size: 24px;">📊</div>
+                <h3 style="font-size: 18px;">Reports</h3>
+                <p>View Analytics</p>
+                <button class="btn btn-secondary" style="margin: 10px 0 0; width: 100%;">View</button>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 60px; margin-bottom: 20px;">Recent Registrations</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Blood Type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alex Turner</td>
+                        <td>Donor</td>
+                        <td>O+</td>
+                        <td>Today, 10:30 AM</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px; margin: 0;">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Emma Davis</td>
+                        <td>Donor</td>
+                        <td>A+</td>
+                        <td>Today, 09:15 AM</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px; margin: 0;">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Robert Wilson</td>
+                        <td>Collector</td>
+                        <td>-</td>
+                        <td>Yesterday</td>
+                        <td><span class="status-badge status-warning">Pending</span></td>
+                        <td><button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px; margin: 0;">Approve</button></td>
+                    </tr>
+                    <tr>
+                        <td>Lisa Anderson</td>
+                        <td>Donor</td>
+                        <td>B-</td>
+                        <td>2 days ago</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                        <td><button class="btn btn-secondary" style="padding: 4px 12px; font-size: 12px; margin: 0;">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+:root {
+    /* Professional Medical Palette */
+    --primary: #e63946;       /* Vibrant Red */
+    --primary-dark: #c1121f;  /* Darker Red for hover */
+    --secondary: #1d3557;     /* Trustworthy Navy */
+    --accent: #457b9d;        /* Soft Blue */
+    --bg-light: #f8f9fa;      /* Off-white background */
+    --text-dark: #2b2d42;     /* Dark Grey (never use pure black) */
+    --text-light: #8d99ae;    /* Muted Grey */
+    --white: #ffffff;
+    --success: #2a9d8f;
+    --warning: #e9c46a;
+    
+    /* Effects */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --glass: rgba(255, 255, 255, 0.95);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; /* Clean modern font */
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* Background Canvas */
+#interactive-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through */
+    opacity: 0.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============ NAVBAR (Glassmorphism) ============ */
+.navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+.logo-text { color: var(--secondary); }
+.logo-icon { filter: drop-shadow(0 2px 4px rgba(230, 57, 70, 0.3)); }
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--transition);
+    padding: 8px 16px;
+    border-radius: 50px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+    background: rgba(230, 57, 70, 0.08);
+}
+
+/* ============ TASKBAR (Clean Sub-nav) ============ */
+.taskbar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0;
+    position: relative;
+    z-index: 900;
+    box-shadow: var(--shadow-sm);
+}
+
+.taskbar .container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.taskbar-link {
+    display: inline-block;
+    padding: 14px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+}
+
+.taskbar-link:hover, .taskbar-link.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 8px; /* Slightly squared for modern look */
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--secondary);
+    border: 2px solid rgba(29, 53, 87, 0.1);
+    margin-left: 16px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--secondary);
+    background: rgba(29, 53, 87, 0.05);
+}
+
+/* ============ CARDS (Modern Dashboard Style) ============ */
+.stats-grid, .features-grid, .blood-grid, .steps-grid, .benefits-grid {
+    display: grid;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+/* Card Base */
+.stat-card, .feature-card, .blood-card, .step-card, .benefit-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: var(--transition);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover, .feature-card:hover, .blood-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(230, 57, 70, 0.1);
+}
+
+/* Icons */
+.stat-icon, .feature-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    padding: 16px;
+    background: rgba(230, 57, 70, 0.05);
+    border-radius: 12px;
+    color: var(--primary);
+}
+
+/* Headings inside cards */
+h3 {
+    color: var(--secondary);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+p { color: var(--text-light); }
+
+/* Blood Cards Specific */
+.blood-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+.blood-card {
+    background: var(--white); /* Reverting the heavy gradient to white */
+    border-top: 4px solid var(--primary);
+}
+
+.blood-type {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ============ SECTIONS ============ */
+section { padding: 80px 0; }
+.stats { background: white; }
+.features { background: transparent; }
+.cta { 
+    background: linear-gradient(135deg, var(--secondary) 0%, #2a4a75 100%); 
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    margin: 40px 24px;
+}
+.cta h2 { color: white; margin-bottom: 16px; }
+.cta p { color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+
+/* ============ FORMS (Clean Input Styles) ============ */
+input, select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: var(--transition);
+    background: var(--bg-light);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+
+/* ============ DASHBOARDS (Admin/Collector) ============ */
+.admin-section, .collector-section {
+    background: transparent;
+}
+
+.overview-grid, .dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.overview-card, .stat-card-lg {
+    background: white;
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-number, .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.status-good { color: var(--success); font-weight: 600; }
+.status-critical { color: var(--primary); font-weight: 600; }
+.bar-fill { height: 8px; border-radius: 4px; background: var(--success); }
+.bar-fill.critical { background: var(--primary); }
+
+/* ============ FOOTER ============ */
+.footer {
+    background: var(--secondary);
+    color: white;
+    padding: 80px 0 30px;
+}
+.footer h4 { color: white; margin-bottom: 24px; font-size: 1.1rem; }
+.footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer a:hover { color: white; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar .container { flex-direction: column; gap: 16px; }
+    .nav-links { gap: 16px; font-size: 14px; }
+    .hero h1 { font-size: 2.5rem; }
+    .stats-grid, .features-grid { grid-template-columns: 1fr; }
+}

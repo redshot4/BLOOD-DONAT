@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .faq-grid {
+            display: grid;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-category h2 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--secondary);
+            background: white;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+            background: #f8f9fa;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            color: var(--text-light);
+            background: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        /* Active State */
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Arbitrary large height */
+            padding: 0 24px 24px;
+            opacity: 1;
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link">Emergency</a>
+            <a href="faq.html" class="taskbar-link active">FAQ</a>
+            <a href="contact.html" class="taskbar-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Common questions about eligibility, safety, and the donation process.</p>
+        </div>
+    </section>
+
+    <section class="faq-main-section">
+        <div class="container">
+            <div class="faq-grid">
+                
+                <div class="faq-category">
+                    <h2>General Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is blood donation?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Blood donation is a voluntary procedure where a healthy person donates blood to help patients in need of blood transfusions. The process is quick, safe, and lifesaving.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Why is blood donation important?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Blood is essential for surgeries, emergency care, cancer treatment, and treating patients with blood disorders. One donation can save up to 3 lives.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How often can I donate?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Healthy donors can donate whole blood every 56 days (8 weeks). Platelet and plasma donations can be made more frequently (up to 24 times a year).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2>Eligibility & Health</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Who can donate blood?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Generally, you must be at least 18 years old (16-17 with parental consent), weigh at least 110 pounds, and be in good health on the day of donation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I donate if I'm taking medication?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most medications are acceptable. However, some (like blood thinners or acne meds) may require a waiting period. Please check our eligibility tool or ask during screening.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h2>Safety & Side Effects</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is blood donation safe?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes. We use sterile, single-use needles for every donor. You cannot contract any disease from donating blood.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Will I feel weak afterwards?
+                            <span class="faq-icon">▼</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most people feel fine. You may feel a little lightheaded if you haven't eaten or hydrated enough. We provide snacks and juice to help you recover quickly.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+    <script>
+        // Simple Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                
+                // Toggle active state
+                item.classList.toggle('active');
+                
+                // Close other items (Optional: remove if you want multiple open)
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

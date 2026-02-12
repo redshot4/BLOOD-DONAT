@@ -1,0 +1,279 @@
+:root {
+    /* Professional Medical Palette */
+    --primary: #e63946;       /* Vibrant Red */
+    --primary-dark: #c1121f;  /* Darker Red */
+    --secondary: #1d3557;     /* Trustworthy Navy */
+    --accent: #457b9d;        /* Soft Blue */
+    --bg-light: #f8f9fa;      /* Off-white background */
+    --text-dark: #2b2d42;     /* Dark Grey */
+    --text-light: #6c757d;    /* Muted Grey */
+    --white: #ffffff;
+    --success: #2a9d8f;
+    --warning: #e9c46a;
+    
+    /* Effects */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --radius: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* === CRITICAL FIX FOR TOP SPACE === */
+#interactive-bg {
+    position: fixed;   /* Removes it from the document flow */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;       /* Puts it behind everything */
+    pointer-events: none; /* Allows clicking through it */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ============ NAVBAR (Glassmorphism) ============ */
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 16px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+.logo-text { color: var(--secondary); }
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--transition);
+    padding: 8px 16px;
+    border-radius: 50px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+    background: rgba(230, 57, 70, 0.08);
+}
+
+/* ============ TASKBAR ============ */
+.taskbar {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 900;
+}
+
+.taskbar .container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.taskbar-link {
+    display: inline-block;
+    padding: 14px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border-bottom: 2px solid transparent;
+}
+
+.taskbar-link:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--secondary);
+    border: 1px solid #d1d5db;
+    margin-left: 16px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--secondary);
+    background: #f3f4f6;
+}
+
+/* ============ CARDS ============ */
+.stats-grid, .features-grid, .blood-grid {
+    display: grid;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.stats-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.features-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.blood-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+.stat-card, .feature-card, .blood-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.stat-card:hover, .feature-card:hover, .blood-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-icon, .feature-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    padding: 16px;
+    background: rgba(230, 57, 70, 0.05);
+    border-radius: 12px;
+    color: var(--primary);
+}
+
+/* Card Headings */
+h3 { color: var(--secondary); margin-bottom: 12px; font-size: 1.25rem; }
+p { color: var(--text-light); }
+
+/* Blood Cards */
+.blood-card { border-top: 4px solid var(--primary); }
+.blood-type {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* ============ CTA SECTION ============ */
+.cta { 
+    background: linear-gradient(135deg, var(--secondary) 0%, #2a4a75 100%); 
+    color: white;
+    text-align: center;
+    border-radius: 16px;
+    margin: 80px 24px 40px;
+    padding: 80px 24px;
+}
+.cta h2 { color: white; margin-bottom: 16px; }
+.cta p { color: rgba(255,255,255,0.9); margin-bottom: 32px; }
+
+/* ============ FOOTER ============ */
+.footer {
+    background: var(--secondary);
+    color: white;
+    padding: 80px 0 30px;
+    margin-top: 80px;
+}
+.footer h4 { color: white; margin-bottom: 24px; }
+.footer ul { list-style: none; }
+.footer li { margin-bottom: 12px; }
+.footer a { color: rgba(255,255,255,0.7); text-decoration: none; transition: var(--transition); }
+.footer a:hover { color: white; }
+.footer-bottom { 
+    border-top: 1px solid rgba(255,255,255,0.1); 
+    margin-top: 60px; 
+    padding-top: 30px; 
+    text-align: center; 
+    color: rgba(255,255,255,0.5); 
+    font-size: 0.9rem; 
+}

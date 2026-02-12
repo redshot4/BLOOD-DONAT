@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Donor - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Form Specific Styling */
+        .donor-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border-top: 5px solid var(--primary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-section-title {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            margin-top: 32px;
+        }
+        
+        .form-section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Checkbox Styling */
+        .checkbox-group {
+            display: grid;
+            gap: 12px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+
+        /* Responsive Form */
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .donor-form-container {
+                padding: 24px;
+            }
+        }
+
+        .step-icon {
+            background: rgba(29, 53, 87, 0.05);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html" class="active">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link">Emergency</a>
+            <a href="faq.html" class="taskbar-link">FAQ</a>
+            <a href="contact.html" class="taskbar-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Become a Blood Donor</h1>
+            <p>Join the community of heroes saving lives every day. Safe, simple, and impactful.</p>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                <div class="stat-card">
+                    <div class="stat-icon">💉</div>
+                    <h3>Safe Process</h3>
+                    <p>Sterile, single-use equipment used for every donation.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <h3>Quick</h3>
+                    <p>The actual donation takes only 8-10 minutes.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎁</div>
+                    <h3>Rewards</h3>
+                    <p>Earn points, badges, and health insights.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏥</div>
+                    <h3>Impact</h3>
+                    <p>One donation can save up to 3 lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eligibility-section" style="padding-top: 40px;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <h2>Are You Eligible?</h2>
+                <p>Basic requirements to ensure safety for you and the recipient.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="text-align: center;">
+                    <div class="step-icon">🎂</div>
+                    <h3>Age</h3>
+                    <p>18-65 Years Old</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="step-icon">⚖️</div>
+                    <h3>Weight</h3>
+                    <p>Min 50kg (110lbs)</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="step-icon">📅</div>
+                    <h3>Interval</h3>
+                    <p>Every 56 Days</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="step-icon">❤️</div>
+                    <h3>Health</h3>
+                    <p>Feeling Well Today</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="donor-section" style="background: transparent; padding: 80px 0;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <h2>Donor Registration</h2>
+                <p>Securely register to book your appointment.</p>
+            </div>
+
+            <div class="donor-form-container">
+                <form id="donorForm">
+                    
+                    <h3 class="form-section-title">1. Personal Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Jane">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other / Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3 class="form-section-title">2. Medical Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="bloodType">Blood Type (if known)</label>
+                            <select id="bloodType" name="bloodType">
+                                <option value="">I don't know my type</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Current Weight (kg) *</label>
+                            <input type="number" id="weight" name="weight" min="45" required placeholder="e.g., 65">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Preferred Donation Center *</label>
+                        <select id="location" name="location" required>
+                            <option value="">Select a location...</option>
+                            <option value="downtown">Downtown Blood Bank</option>
+                            <option value="uptown">Uptown Donation Center</option>
+                            <option value="medical">Medical Center Drive</option>
+                            <option value="mobile">Mobile Unit</option>
+                        </select>
+                    </div>
+
+                    <h3 class="form-section-title">3. Pre-Screening</h3>
+                    <p style="margin-bottom: 16px; font-size: 0.9rem; color: var(--text-light);">Please check any that apply to you currently:</p>
+                    
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="illness">
+                            I am currently feeling unwell or have a fever.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="medication">
+                            I am currently taking antibiotics or blood thinners.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="travel">
+                            I have traveled outside the country in the last 3 months.
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="health" value="surgery">
+                            I have had surgery or a tattoo in the last 6 months.
+                        </label>
+                    </div>
+
+                    <div style="margin-top: 24px; padding: 16px; background: #e6fcf5; border-radius: 8px; border: 1px solid #63e6be;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span style="font-weight: 500; color: var(--text-dark);">I agree to the <a href="terms.html">Terms of Service</a> and confirm the information above is accurate.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 30px; font-size: 1.1rem;">Register & Schedule</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services - BloodLife</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .emergency-alert {
+            background: #fff5f5;
+            border: 2px solid #fa5252;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(250, 82, 82, 0.15);
+        }
+        
+        .emergency-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #c92a2a;
+            margin: 16px 0;
+            letter-spacing: -1px;
+        }
+
+        .process-step {
+            position: relative;
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .contact-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-phone {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🩸</span>
+                <span class="logo-text">BloodLife</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="donor.html">Be a Donor</a></li>
+                <li><a href="collector.html">Collector</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="taskbar">
+        <div class="container">
+            <a href="about.html" class="taskbar-link">About Us</a>
+            <a href="blood-type-guide.html" class="taskbar-link">Blood Types</a>
+            <a href="donor-health.html" class="taskbar-link">Donor Health</a>
+            <a href="donation-centers.html" class="taskbar-link">Find Centers</a>
+            <a href="emergency-services.html" class="taskbar-link active">Emergency</a>
+            <a href="faq.html" class="taskbar-link">FAQ</a>
+            <a href="contact.html" class="taskbar-link">Contact</a>
+        </div>
+    </div>
+
+    <section class="hero" style="padding: 60px 0;">
+        <div class="container">
+            <h1>Emergency Services</h1>
+            <p>Rapid response blood support available 24/7/365.</p>
+        </div>
+    </section>
+
+    <section class="emergency-section">
+        <div class="container">
+            
+            <div class="emergency-alert">
+                <h2 style="color: #c92a2a; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                    🚨 Urgent Blood Request?
+                </h2>
+                <p class="emergency-number">+1-555-BLOOD-911</p>
+                <p class="available" style="color: var(--text-light); font-weight: 500;">
+                    Direct Line to Emergency Dispatch • Available 24/7
+                </p>
+                <div style="margin-top: 24px;">
+                    <a href="tel:+15552566391" class="btn btn-primary" style="background: #c92a2a;">Call Now</a>
+                </div>
+            </div>
+
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                <h2>Our Response Capabilities</h2>
+            </div>
+            
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="stat-card" style="text-align: left;">
+                    <div class="stat-icon">🚑</div>
+                    <h3>Rapid Transport</h3>
+                    <p>Priority delivery to hospitals within 30 minutes for critical cases.</p>
+                </div>
+                <div class="stat-card" style="text-align: left;">
+                    <div class="stat-icon">🩸</div>
+                    <h3>Rare Blood Bank</h3>
+                    <p>Immediate access to our frozen reserve of rare blood phenotypes.</p>
+                </div>
+                <div class="stat-card" style="text-align: left;">
+                    <div class="stat-icon">👥</div>
+                    <h3>Donor Mobilization</h3>
+                    <p>Automated alerts to pre-screened O- donors in the vicinity.</p>
+                </div>
+                <div class="stat-card" style="text-align: left;">
+                    <div class="stat-icon">📞</div>
+                    <h3>Medical Support</h3>
+                    <p>On-call hematologists to assist with compatibility issues.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="text-align: center; margin: 80px 0 40px;">
+                <h2>How to Request Emergency Blood</h2>
+            </div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Call Dispatch</h3>
+                    <p>Dial our emergency line. Have patient blood type and hospital ID ready.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Verification</h3>
+                    <p>We verify the request with the hospital transfusion officer immediately.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Dispatch</h3>
+                    <p>Motorcycle or helicopter transport is deployed based on urgency.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Delivery</h3>
+                    <p>Hand-off directly to the operating theater or ER staff.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="text-align: center; margin: 80px 0 40px;">
+                <h2>Emergency Directory</h2>
+            </div>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="contact-item">
+                    <p>General Emergency</p>
+                    <span class="contact-phone">Ext. 1</span>
+                </div>
+                <div class="contact-item">
+                    <p>Hospital Coordination</p>
+                    <span class="contact-phone">Ext. 2</span>
+                </div>
+                <div class="contact-item">
+                    <p>Rare Blood Desk</p>
+                    <span class="contact-phone">Ext. 3</span>
+                </div>
+                <div class="contact-item">
+                    <p>Transport Status</p>
+                    <span class="contact-phone">Ext. 4</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow-sm);">
+                <h3>Why Hospitals Trust BloodLife</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px;">
+                    <p>✓ <strong>ISO 9001 Certified</strong> Response Protocols</p>
+                    <p>✓ <strong>GPS Tracking</strong> for all shipments</p>
+                    <p>✓ <strong>Temperature Controlled</strong> Logistics</p>
+                    <p>✓ <strong>24/7</strong> Hematologist Availability</p>
+                    <p>✓ <strong>Zero Failure</strong> Rate in 2023</p>
+                    <p>✓ <strong>Nationwide</strong> Network Access</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-line" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+                <div class="footer-section">
+                    <h4>BloodLife</h4>
+                    <p>Connecting donors with those in need through technology and compassion.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>1-800-BLOOD-LIFE</p>
+                    <p>help@bloodlife.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BloodLife Systems. All rights reserved. | ISO 27001 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="background.js"></script>
+</body>
+</html>
